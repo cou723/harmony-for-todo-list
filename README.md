@@ -29,4 +29,5 @@
 - [x] setup clerk
 - [x] install ts-results
 - [x] install zod
-- [] install eslint
+- [x] install eslint
+- [ ] init dir structure
