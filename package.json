@@ -44,5 +44,10 @@
     "tailwindcss": "^3.4.3",
     "vite": "^5.0.12",
     "wrangler": "^3.47.0"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": "eslint --fix",
+    "*.{ts,tsx,json}": "prettier --write",
+    "*.{css}": "stylelint --fix"
   }
 }
