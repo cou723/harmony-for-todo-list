@@ -5,7 +5,8 @@
     "build": "vite build --mode client && vite build",
     "preview": "wrangler pages dev dist",
     "deploy": "$npm_execpath run build && wrangler pages deploy dist",
-    "lint": "ESLINT_USE_FLAT_CONFIG=false eslint --ext=.ts.tsx src/*",
+    "format": "prettier --write --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json,css}'",
+    "lint": "eslint --ext=.ts.tsx src/*",
     "lint-fix": "eslint src --fix"
   },
   "dependencies": {

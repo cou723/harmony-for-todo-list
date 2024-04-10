@@ -19,9 +19,7 @@ export default function Header() {
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
 
-if (!PUBLISHABLE_KEY) {
-  throw new Error('Missing Publishable Key')
-}
+if (!PUBLISHABLE_KEY) throw new Error('Missing Publishable Key')
 
 function App() {
   return (
@@ -46,10 +44,7 @@ const ClockButton = () => {
   const handleClick = async () => {
     const response = await fetch('/api/clock')
     const data = await response.json()
-    const headers = Array.from(response.headers.entries()).reduce(
-      (acc, [key, value]) => ({ ...acc, [key]: value }),
-      {}
-    )
+    const headers = Array.from(response.headers.entries()).reduce((acc, [key, value]) => ({ ...acc, [key]: value }), {})
     const fullResponse = {
       url: response.url,
       status: response.status,

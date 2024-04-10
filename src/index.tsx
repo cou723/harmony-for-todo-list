@@ -1,16 +1,16 @@
-import { renderToString } from "react-dom/server";
+import { renderToString } from 'react-dom/server'
 
-import { Hono } from "hono";
+import { Hono } from 'hono'
 
-const app = new Hono();
+const app = new Hono()
 
-app.get("/api/clock", (c) => {
+app.get('/api/clock', (c) => {
   return c.json({
     time: new Date().toLocaleTimeString(),
-  });
-});
+  })
+})
 
-app.get("*", (c) => {
+app.get('*', (c) => {
   return c.html(
     renderToString(
       <html>
@@ -29,7 +29,7 @@ app.get("*", (c) => {
         </body>
       </html>
     )
-  );
-});
+  )
+})
 
-export default app;
+export default app
