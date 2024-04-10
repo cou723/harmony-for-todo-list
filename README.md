@@ -20,7 +20,9 @@
     - Zod OpenAPI
     - Bun
   - Todoist API
-
+- Frontend
+  - Clerk
+  - React
 
 ## Todo
 - setup react
