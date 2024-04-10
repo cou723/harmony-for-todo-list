@@ -6,8 +6,8 @@
     "preview": "wrangler pages dev dist",
     "deploy": "$npm_execpath run build && wrangler pages deploy dist",
     "format": "prettier --write --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json,css}'",
-    "lint": "eslint --ext=.ts.tsx src/*",
-    "lint-fix": "eslint src --fix"
+    "lint": "eslint 'src/**/{*.ts,*.tsx}' && stylelint '**/*.css'",
+    "lint-fix": "eslint 'src/**/{*.ts,*.tsx}' --fix && stylelint '**/*.css' --fix"
   },
   "dependencies": {
     "@clerk/clerk-react": "^4.30.10",
@@ -19,7 +19,11 @@
     "hono": "^4.2.3",
     "prettier": "^3.2.5",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "stylelint": "^16.3.1",
+    "stylelint-config-prettier": "^9.0.5",
+    "stylelint-config-standard": "^36.0.0",
+    "stylelint-prettier": "^5.0.0"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20240403.0",
@@ -32,6 +36,8 @@
     "eslint": "^8.56.0",
     "eslint-plugin-react": "^7.34.1",
     "eslint-plugin-unused-imports": "^3.1.0",
+    "husky": "^9.0.11",
+    "knip": "^5.9.3",
     "postcss": "^8.4.38",
     "postcss-preset-mantine": "^1.14.0",
     "postcss-simple-vars": "^7.0.1",

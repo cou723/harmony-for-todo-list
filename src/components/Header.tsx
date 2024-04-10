@@ -1,8 +1,6 @@
 import { SignedOut, SignInButton, SignedIn, UserButton } from '@clerk/clerk-react'
 import { Container, Group } from '@mantine/core'
 
-interface HeaderProps {}
-
 export function Header() {
 	return (
 		<header>
