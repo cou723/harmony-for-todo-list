@@ -26,7 +26,7 @@
 
 ## Todo
 - [x] setup react
-- [] setup clerk
-- [] install ts-results
-- [] install zod
+- [x] setup clerk
+- [x] install ts-results
+- [x] install zod
 - [] install eslint

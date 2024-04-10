@@ -1,7 +1,8 @@
-import { createRoot } from "react-dom/client";
-import { useState } from "react";
-import { ClerkProvider } from "@clerk/clerk-react";
-import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/clerk-react";
+import { useState } from 'react'
+import { createRoot } from 'react-dom/client'
+
+import { ClerkProvider } from '@clerk/clerk-react'
+import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react'
 
 export default function Header() {
   return (
@@ -13,13 +14,13 @@ export default function Header() {
         <UserButton />
       </SignedIn>
     </header>
-  );
+  )
 }
 
-const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
+const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
 
 if (!PUBLISHABLE_KEY) {
-  throw new Error("Missing Publishable Key");
+  throw new Error('Missing Publishable Key')
 }
 
 function App() {
@@ -31,46 +32,46 @@ function App() {
       <h2>Example of API fetch()</h2>
       <ClockButton />
     </>
-  );
+  )
 }
 
 function Counter() {
-  const [count, setCount] = useState(0);
-  return <button onClick={() => setCount(count + 1)}>You clicked me {count} times</button>;
+  const [count, setCount] = useState(0)
+  return <button onClick={() => setCount(count + 1)}>You clicked me {count} times</button>
 }
 
 const ClockButton = () => {
-  const [response, setResponse] = useState<string | null>(null);
+  const [response, setResponse] = useState<string | null>(null)
 
   const handleClick = async () => {
-    const response = await fetch("/api/clock");
-    const data = await response.json();
+    const response = await fetch('/api/clock')
+    const data = await response.json()
     const headers = Array.from(response.headers.entries()).reduce(
       (acc, [key, value]) => ({ ...acc, [key]: value }),
       {}
-    );
+    )
     const fullResponse = {
       url: response.url,
       status: response.status,
       headers,
       body: data,
-    };
-    setResponse(JSON.stringify(fullResponse, null, 2));
-  };
+    }
+    setResponse(JSON.stringify(fullResponse, null, 2))
+  }
 
   return (
     <div>
       <button onClick={handleClick}>Get Server Time</button>
       {response && <pre>{response}</pre>}
     </div>
-  );
-};
+  )
+}
 
-const domNode = document.getElementById("root")!;
-const root = createRoot(domNode);
+const domNode = document.getElementById('root')!
+const root = createRoot(domNode)
 root.render(
   <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
     <Header />
     <App />
   </ClerkProvider>
-);
+)
