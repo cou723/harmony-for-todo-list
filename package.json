@@ -1,53 +1,54 @@
 {
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build --mode client && vite build",
-    "preview": "wrangler pages dev dist",
-    "deploy": "$npm_execpath run build && wrangler pages deploy dist",
-    "format": "prettier --write --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json,css}'",
-    "lint": "eslint 'src/**/{*.ts,*.tsx}' && stylelint '**/*.css'",
-    "lint-fix": "eslint 'src/**/{*.ts,*.tsx}' --fix && stylelint '**/*.css' --fix"
-  },
-  "dependencies": {
-    "@clerk/clerk-react": "^4.30.10",
-    "@hono/eslint-config": "^0.0.4",
-    "@mantine/core": "^7.7.1",
-    "@mantine/dates": "^7.7.1",
-    "@mantine/hooks": "^7.7.1",
-    "dayjs": "^1.11.10",
-    "hono": "^4.2.3",
-    "prettier": "^3.2.5",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "stylelint": "^16.3.1",
-    "stylelint-config-prettier": "^9.0.5",
-    "stylelint-config-standard": "^36.0.0",
-    "stylelint-prettier": "^5.0.0"
-  },
-  "devDependencies": {
-    "@cloudflare/workers-types": "^4.20240403.0",
-    "@hono/vite-cloudflare-pages": "^0.2.4",
-    "@hono/vite-dev-server": "^0.10.0",
-    "@types/react": "^18.2.75",
-    "@types/react-dom": "^18.2.24",
-    "@typescript-eslint/eslint-plugin": "^7.6.0",
-    "@typescript-eslint/parser": "^7.6.0",
-    "eslint": "^8.56.0",
-    "eslint-plugin-react": "^7.34.1",
-    "eslint-plugin-unused-imports": "^3.1.0",
-    "husky": "^9.0.11",
-    "knip": "^5.9.3",
-    "postcss": "^8.4.38",
-    "postcss-preset-mantine": "^1.14.0",
-    "postcss-simple-vars": "^7.0.1",
-    "tailwindcss": "^3.4.3",
-    "vite": "^5.0.12",
-    "wrangler": "^3.47.0"
-  },
-  "lint-staged": {
-    "*.{ts,tsx}": "eslint --fix",
-    "*.{ts,tsx,json}": "prettier --write",
-    "*.{css}": "stylelint --fix"
-  }
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build --mode client && vite build",
+		"preview": "wrangler pages dev dist",
+		"deploy": "$npm_execpath run build && wrangler pages deploy dist",
+		"format": "prettier --write --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json,css}'",
+		"lint": "eslint 'src/**/{*.ts,*.tsx}' && stylelint '**/*.css'",
+		"lint-fix": "eslint 'src/**/{*.ts,*.tsx}' --fix && stylelint '**/*.css' --fix",
+		"prepare": "husky"
+	},
+	"dependencies": {
+		"@clerk/clerk-react": "^4.30.10",
+		"@hono/eslint-config": "^0.0.4",
+		"@mantine/core": "^7.7.1",
+		"@mantine/dates": "^7.7.1",
+		"@mantine/hooks": "^7.7.1",
+		"dayjs": "^1.11.10",
+		"hono": "^4.2.3",
+		"prettier": "^3.2.5",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"stylelint": "^16.3.1",
+		"stylelint-config-prettier": "^9.0.5",
+		"stylelint-config-standard": "^36.0.0",
+		"stylelint-prettier": "^5.0.0"
+	},
+	"devDependencies": {
+		"@cloudflare/workers-types": "^4.20240403.0",
+		"@hono/vite-cloudflare-pages": "^0.2.4",
+		"@hono/vite-dev-server": "^0.10.0",
+		"@types/react": "^18.2.75",
+		"@types/react-dom": "^18.2.24",
+		"@typescript-eslint/eslint-plugin": "^7.6.0",
+		"@typescript-eslint/parser": "^7.6.0",
+		"eslint": "^8.56.0",
+		"eslint-plugin-react": "^7.34.1",
+		"eslint-plugin-unused-imports": "^3.1.0",
+		"husky": "^9.0.11",
+		"knip": "^5.9.3",
+		"postcss": "^8.4.38",
+		"postcss-preset-mantine": "^1.14.0",
+		"postcss-simple-vars": "^7.0.1",
+		"tailwindcss": "^3.4.3",
+		"vite": "^5.0.12",
+		"wrangler": "^3.47.0"
+	},
+	"lint-staged": {
+		"*.{ts,tsx}": "eslint --fix",
+		"*.{ts,tsx,json}": "prettier --write",
+		"*.css": "stylelint --fix"
+	}
 }
