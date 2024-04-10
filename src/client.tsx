@@ -1,5 +1,26 @@
 import { createRoot } from "react-dom/client";
 import { useState } from "react";
+import { ClerkProvider } from "@clerk/clerk-react";
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/clerk-react";
+
+export default function Header() {
+  return (
+    <header>
+      <SignedOut>
+        <SignInButton />
+      </SignedOut>
+      <SignedIn>
+        <UserButton />
+      </SignedIn>
+    </header>
+  );
+}
+
+const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
+
+if (!PUBLISHABLE_KEY) {
+  throw new Error("Missing Publishable Key");
+}
 
 function App() {
   return (
@@ -47,4 +68,9 @@ const ClockButton = () => {
 
 const domNode = document.getElementById("root")!;
 const root = createRoot(domNode);
-root.render(<App />);
+root.render(
+  <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
+    <Header />
+    <App />
+  </ClerkProvider>
+);
